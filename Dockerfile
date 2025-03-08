@@ -8,7 +8,10 @@ WORKDIR /app
 COPY package*.json ./
 
 # Install dependencies
-RUN npm ci --omit=dev
+RUN npm ci 
+
+# Ensure node_modules/.bin is in PATH
+ENV PATH /app/node_modules/.bin:$PATH
 
 # Copy the rest of the application code
 COPY . .
