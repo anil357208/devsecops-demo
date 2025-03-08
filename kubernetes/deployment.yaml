@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
       - name: tic-tac-toe
-        image: ghcr.io/anil357208/devsecops-demo:sha-fb64dc2ac8cd8d79ad4a75c58326596b59eaf402
+        image: ghcr.io/anil357208/devsecops-demo:sha-cf7f558c8b6345a0fc7e90f25fc0c8689853bd96
         # Image will be automatically updated by CI/CD pipeline
         imagePullPolicy: Always
         ports:
@@ -41,4 +41,4 @@ spec:
           initialDelaySeconds: 5
           periodSeconds: 5
       imagePullSecrets:
-      - name: github-container-registry
+        - name: github-container-registry
