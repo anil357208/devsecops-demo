@@ -22,6 +22,10 @@ RUN npm run build
 # Stage 2: Serve the application using Nginx
 FROM nginx:alpine
 
+# Update Alpine repository URLs
+RUN sed -i 's/dl-cdn.alpinelinux.org/mirror.example.com/g' /etc/apk/repositories && \
+    apk update
+
 # Copy the built application from the build stage
 COPY --from=build /app/dist /usr/share/nginx/html
 
